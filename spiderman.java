@@ -1,6 +1,7 @@
 import java.util.*;
 public class Spiderman {
-
+    //aci afegexic
+    //i ara tambe aço +++++
     public static void main(String[] args) {
         Scanner teclat = new Scanner(System.in);
         int primera, segona;
