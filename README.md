@@ -1,2 +1,2 @@
-# proves
-Pa fer proves
+# Programació
+Repositori en els programes de classe
