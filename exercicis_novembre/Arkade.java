@@ -7,8 +7,11 @@ public class Arkade{
         int numero_jugadors = 0;
         String[] noms;
         int[] puntuacio;
+        int[] posicions_guanyadors, posicions_perdedors;
         int maxim, minim;
         int posicio_maxim=0, posicio_minim = 0;
+        int contador_guanyadors = 0, contador_perdedors = 0;
+        
         
         
         //Iniciali
@@ -20,6 +23,8 @@ public class Arkade{
         
         noms = new String[numero_jugadors];
         puntuacio = new int[numero_jugadors];
+        posicions_guanyadors = new int[numero_jugadors];
+        posicions_perdedors = new int[numero_jugadors];
         
         for(int i=0; i < numero_jugadors ; i++){
             System.out.println("Disme el nom del jugador "+(i+1));
@@ -48,8 +53,23 @@ public class Arkade{
             
         }//del for
         
-        System.out.println("Ha guanyat "+noms[posicio_maxim]+" amb una puntuacio de: "+puntuacio[posicio_maxim]);
-        System.out.println("Ha perdut "+noms[posicio_minim]+" amb una puntuacio de: "+puntuacio[posicio_minim]);
+        for(int i = 0; i < numero_jugadors; i++){
+            if(puntuacio[i]==maxim){
+                posicions_guanyadors[contador_guanyadors] = i;
+                contador_guanyadors++;
+            }
+            if(puntuacio[i]==minim){
+                posicions_perdedors[contador_perdedors] = i;
+                contador_perdedors++;
+            }
+        }
+        
+        for(int i=0; i < contador_guanyadors;i++){
+            System.out.println("Ha guanyat "+noms[posicions_guanyadors[i]]+" amb una puntuacio de: "+maxim);
+        }
+        for(int i=0; i < contador_perdedors;i++){
+            System.out.println("Ha perdut "+noms[posicions_perdedors[i]]+" amb una puntuacio de: "+minim);
+        }
         
 
         
