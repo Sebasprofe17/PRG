@@ -18,11 +18,15 @@ public class JocDeRol{
         //DEmanar cantitat valida de usuaris
         System.out.println("Quants jugadors van a jugar.");
         cantitat_jugadors = demanarCantitat(MINIM_JUGADORS, MAXIM_JUGADORS);
+        teclat.nextLine();
         usuaris = new String[cantitat_jugadors];
         jugadors = new char[cantitat_jugadors];
         vida = new int[cantitat_jugadors];
 
         inicialitza(vida, 30);
+        demanaUsuaris(usuaris);
+        for(int i=0; i< usuaris.length; i++)
+            System.out.println("el jugador "+(i+1)+" es "+usuaris[i]);
     
         /*
         //Provar
@@ -46,7 +50,12 @@ public class JocDeRol{
     ouput res
     ha de demanar i posar en cada posicio el nom de lusuari
     */
-    
+    public static void demanaUsuaris(String[] noms){
+        for(int i= 0; i< noms.length; i++){
+            System.out.println("Dis-me el nom del jugador : "+(i+1));
+            noms[i] = teclat.nextLine();
+        }
+    }
     
     /**
     Este metode torna un numero valid, entre un minim i maxim
