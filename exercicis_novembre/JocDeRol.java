@@ -18,26 +18,23 @@ public class JocDeRol{
         //DEmanar cantitat valida de usuaris
         System.out.println("Quants jugadors van a jugar.");
         cantitat_jugadors = demanarCantitat(MINIM_JUGADORS, MAXIM_JUGADORS);
-        teclat.nextLine();
+        teclat.nextLine();//Per a buidar el buffer
+        
         usuaris = new String[cantitat_jugadors];
         jugadors = new char[cantitat_jugadors];
         vida = new int[cantitat_jugadors];
 
         inicialitza(vida, 30);
         demanaUsuaris(usuaris);
-        for(int i=0; i< usuaris.length; i++)
-            System.out.println("el jugador "+(i+1)+" es "+usuaris[i]);
+        
+        demanarLletra(jugadors);
+        pintaEstatsDeVida(jugadors, vida);
+        
     
-        /*
-        //Provar
-        System.out.println("Has introuit el "+cantitat_jugadors);
-        //Demanar la tirada i comprovar que es correcta
-        System.out.println("Quina tirada fas.");
-        dado = demanarCantitat(1,6);
-        //Provar
-        System.out.println("Has introuit el "+dado);
-        */
+        
     }
+    
+    
     
     public static void inicialitza(int[] v, int valor){
         for(int i = 0; i<v.length; i++)
@@ -55,6 +52,7 @@ public class JocDeRol{
             System.out.println("Dis-me el nom del jugador : "+(i+1));
             noms[i] = teclat.nextLine();
         }
+        
     }
     
     /**
@@ -68,8 +66,8 @@ public class JocDeRol{
             numero = teclat.nextInt();
             es_ok = comprovarCantitat(minim, maxim, numero);
         }while(!es_ok);
+
         return numero;
-        
     }
     
     public static boolean comprovarCantitat(int minim, int maxim, int numero){
@@ -80,8 +78,39 @@ public class JocDeRol{
     }
     
     /**
-    Pintar vida
-    Input,el array en , el array amb la vida dels jugadors
+    demanarLletra
+    input: char[] lletres
+    ouput: void
     */
+    public static void demanarLletra(char[] lletres){
+        for(int i = 0; i < lletres.length; i++){
+            System.out.print("Donam la lletra del jugador "+(i+1));
+            lletres[i] = teclat.nextLine().charAt(0);
+        }
+    }
+    
+    /**
+    pintaVida
+    pinta la vida de un jugador en concret
+    input: char lletra, int vida
+    output
+    */
+    public static void pintaVida(char lletra, int vida){
+        System.out.print(lletra+" ");
+        for(int i=0; i< vida; i++)
+            System.out.print("#");
+        System.out.print("\n");
+    }
+    
+    /**
+    pintaEstatsDeVida
+    input; char[] lletres, int[] vida
+    ouput;
+    */
+   public static void pintaEstatsDeVida(char[] lletres, int[] vida){
+        for(int i=0; i< lletres.length; i++){
+            pintaVida(lletres[i], vida[i]);
+        }
+   }
 
 }
