@@ -24,10 +24,14 @@ public class JocPista {
         incialitzaPista(pista,'_');
         pista[0] = caracter;
         
-        pases = demanarNumero();
-        costat  = demanarCaracter("Donam el costat: esquerre la e i dreta la d");
-        
         pintaPista(pista);
+        do{
+            pases = demanarNumero();
+            costat  = demanarCaracter("Donam el costat: esquerre la e i dreta la d");
+            menejarIcono(pista, caracter, pases, costat);
+            pintaPista(pista);
+        }while(pases > 0);
+        
     }
     
     public static void menejarIcono(char[] pista, char caracter, int pases, char costat){
@@ -35,9 +39,17 @@ public class JocPista {
         pos_inicial = buscaIcono(pista, caracter);
         if(costat=='e'){
             pos_final = pos_inicial - pases;
+            if(pos_final < 0)
+                pos_final = 0;
         }else{
+            pos_final = pos_inicial + pases;
+            if(pos_final > pista.length-1)
+                pos_final = pista.length-1;
         }
+        pista[pos_inicial] = '_';
+        pista[pos_final] = caracter;
     }
+    
     
     public static int buscaIcono(char[] pista, char icono){
         for(int i=0; i< pista.length ;i++){
@@ -67,6 +79,7 @@ public class JocPista {
     public static void pintaPista(char[] pista){
         for(int i=0; i< pista.length; i++)
             System.out.print(pista[i]);
+        System.out.print("\n");
     }
     
 }
