@@ -19,6 +19,7 @@ public class Recursivitat1 {
         System.out.println("La suma dels primers "+n+" numeros: "+sumaRecursiva(n));
         System.out.println("Factorial dels primers "+n+" numeros: "+factorialRecursiu(n));
         System.out.println("Fibonacci dels primers "+n+" numeros: "+fibonacciRecursiu(n));
+        System.out.println("Potencia de 3 elevat a 4: "+Math.pow(3, 4)+" calculat amb recursiu "+potenciaRecursiu(3,4));
     }
     
     public static int sumaRecursiva(int n){
@@ -56,5 +57,13 @@ public class Recursivitat1 {
     
     public static boolean estaOrdenatLanzadera(int[] n){
         return estaOrdenat(n,0);
+    }
+    
+    public static int potenciaRecursiu(int n, int pot){
+        //cas base
+        if(pot <= 0)
+            return 1;
+        //cas general
+        return n * potenciaRecursiu(n,pot-1);
     }
 }
