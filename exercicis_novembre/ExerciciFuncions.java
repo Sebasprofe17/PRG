@@ -7,7 +7,9 @@ public class ExerciciFuncions{
         numero = multiplica(numero);
         numero = comparaNumeroAmbAleatori(numero);
         tornaResultat(numero+"");
-        
+        for(String arg :arguments){
+            System.out.println(arg);
+        }
     }
     
     

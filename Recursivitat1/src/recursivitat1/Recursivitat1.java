@@ -23,6 +23,8 @@ public class Recursivitat1 {
         int[] v = {4,4,5,6,2,3,4,5,6};
         //mostrarArrayRecursiu(v,0);
         mostrarArrayRecursiuDelReves(v, v.length-1);
+        String cadena = "Sebas";
+        System.out.println(reversaCadena(cadena, cadena.length()-1));
     }
     
     public static int sumaRecursiva(int n){
@@ -86,6 +88,10 @@ public class Recursivitat1 {
         //cas base, res que fer
     }
     
-    
+    public static String reversaCadena(String cadena, int index){
+        if(index <= 0)
+            return cadena.charAt(index)+"";
+        return cadena.charAt(index) + reversaCadena(cadena, index-1);
+    }
     
 }
