@@ -11,7 +11,7 @@ package numerocapicua;
  */
 public class NumeroCapICua {
 
-    /**
+    /**Cuidao que falla!!!!!! si hi ha zeros al mig del numero els descarta i per tant no és una bona solucio
      * @param args the command line arguments
      */
     public static void main(String[] args) {
